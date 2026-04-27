@@ -30,11 +30,13 @@ let shopItemsData = [{
 },
 ];
 
+let basket = [];
+
 let generateShop = () => {
     return (shop.innerHTML = shopItemsData.map((x) =>{
         let {id, name, price, desc, img} = x;
         return `
-    <div class="item" id = poduct-id-${id}>
+    <div class="item" id = product-id-${id}>
             <img width="220" src="${img}" alt="">
             <div class="details">
                 <h3>${name}</h3>
@@ -42,9 +44,9 @@ let generateShop = () => {
                 <div class="price-quantity">
                     <h2>$ ${price}</h2>
                     <div class="buttons">
-                        <i class="bi bi-dash-lg"></i>
+                        <i onclick="decrement(${id})" class="bi bi-dash-lg"></i>
                         <div class="quantity" id = ${id} >0</div>
-                        <i class="bi bi-plus-lg"></i>
+                        <i onclick="increment(${id})" class="bi bi-plus-lg"></i>
                     </div>
                 </div>
             </div>
@@ -54,3 +56,49 @@ let generateShop = () => {
 }
 
 generateShop();
+
+let increment = (id) => {
+    let search = basket.find((x) => x.id === id);
+    
+    if(search === undefined){
+        basket.push({
+            id: id,
+            itemCount: 1,
+        });
+    }
+    else{
+        search.itemCount ++;
+    }
+
+    
+
+    // alert(`increment on id: ${id}`);
+
+    // console.log(basket);
+    update(id);
+};
+
+let decrement = (id) => {
+
+    let search = basket.find((x) => x.id === id);
+    
+    if(search.itemCount === 0) return;
+    
+    search.itemCount --;
+    
+
+    // alert(`decrement on id: ${id}`);
+
+    // console.log(basket)
+    update(id);
+};
+
+let update = (id) => {
+    let search = basket.find((x) => x.id === id);
+    console.log(search.itemCount);
+    document.getElementById(id).innerHTML = search.itemCount;
+};
+
+let calculation = () => {
+    
+}
