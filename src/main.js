@@ -97,8 +97,11 @@ let update = (id) => {
     let search = basket.find((x) => x.id === id);
     console.log(search.itemCount);
     document.getElementById(id).innerHTML = search.itemCount;
+    calculation();
 };
 
 let calculation = () => {
+    let cartIcon = document.getElementById('cartAmount');
+    cartIcon.innerHTML = basket.map(x => x.itemCount).reduce((x,y) => x+y,0);
     
 }
