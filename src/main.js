@@ -65,6 +65,7 @@ generateShop();
 let increment = (id) => {
     let search = basket.find((x) => x.id === id);
     
+    
     if(search === undefined){
         basket.push({
             id: id,
@@ -87,15 +88,20 @@ let decrement = (id) => {
 
     let search = basket.find((x) => x.id === id);
     
+    if(search === undefined) return;
     if(search.itemCount === 0) return;
     
     search.itemCount --;
     
 
     // alert(`decrement on id: ${id}`);
-    localStorage.setItem("data", JSON.stringify(basket));
-    // console.log(basket)
     update(id);
+
+    basket = basket.filter(x => x.itemCount !== 0)
+    
+    // console.log(basket)
+    
+    localStorage.setItem("data", JSON.stringify(basket));
 };
 
 let update = (id) => {

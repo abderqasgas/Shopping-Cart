@@ -8,6 +8,15 @@ body{
     font-family: sans-serif;
 }
 
+i{
+    cursor: pointer;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
 .navbar{
     background-color: #212529;
     color: white;
