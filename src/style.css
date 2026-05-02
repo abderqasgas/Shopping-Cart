@@ -24,6 +24,7 @@ a{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 30px;
 }
 
@@ -54,6 +55,7 @@ a{
     grid-template-columns: repeat(4, 223px);
     gap: 30px;
     justify-content: center;
+    margin-bottom: 50px;
 }
 
 @media (max-width: 1000px){
@@ -71,6 +73,11 @@ a{
 .item{
     border: 2px solid #212529;
     border-radius: 4px;
+}
+
+.item img{
+    width: 100%;
+    border-radius: 2px 2px 0 0;
 }
 
 .details{
@@ -123,7 +130,7 @@ a{
 }
 
 .removeAll{
-    background-color: green;
+    background-color: red;
 }
 
 .bi-x-lg{

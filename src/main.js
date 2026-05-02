@@ -6,7 +6,7 @@ let generateShop = () => {
     return (shop.innerHTML = shopItemsData.map((x) =>{
         let {id, name, price, desc, img} = x;
         let search = basket.find((x) => x.id === id) || [];
-        console.log(search.itemCount);
+        // console.log(search.itemCount);
         return `
     <div class="item" id = "product-id-${id}">
             <img width="220" src="${img}" alt="">
